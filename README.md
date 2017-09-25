@@ -1,2 +1,7 @@
-# test-javascript
-Javascript testing package for Joomla
+# JavaScript Tests package for Joomla
+
+### Abstract
+
+### Installation
+
+### Running

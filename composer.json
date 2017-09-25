@@ -1,0 +1,23 @@
+{
+  "name": "joomla/test-javascript",
+  "type": "project",
+  "description": "Joomla CMS JavaScript tests with Jasmine and Karma",
+  "keywords": ["joomla", "testing", "javascript"],
+  "homepage": "https://github.com/joomla/joomla-cms",
+  "license": "GPL-2.0+",
+  "config": {
+	"platform": {
+	  "php": "7.0.0"
+	}
+  },
+  "support": {
+	"issues":"https://issues.joomla.org",
+	"forum":"http://forum.joomla.org/",
+	"docs":"https://docs.joomla.org"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Joomla\\JavaScriptTesting::setup"
+    ]
+  }
+}
