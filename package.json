@@ -1,6 +1,6 @@
 {
   "name": "joomla-javascript-tests",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Joomla CMS javascript testing suite",
   "repository": {
     "type": "git",
