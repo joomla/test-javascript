@@ -1,24 +1,24 @@
 {
-  "name": "joomla-javascript-tests",
-  "version": "0.0.2",
-  "description": "Joomla CMS javascript testing suite",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/joomla/test-javascript"
-  },
-  "scripts": {
-    "javascript-tests": "node node_modules/karma/bin/karma start node_modules/joomla-javascript-tests/karma.conf.js --single-run"
-  },
-  "dependencies": {
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-coverage": "^1.1.1",
-    "karma-firefox-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.8",
+	"name": "joomla-javascript-tests",
+	"version": "0.0.4",
+	"description": "Joomla CMS javascript testing suite",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/joomla/test-javascript"
+	},
+	"scripts": {
+		"javascript-tests": "node node_modules/karma/bin/karma start node_modules/joomla-javascript-tests/karma.conf.js --single-run"
+	},
+	"dependencies": {
+		"jasmine-core": "^2.4.1",
+		"karma": "^0.13.22",
+		"karma-coverage": "^1.1.1",
+		"karma-firefox-launcher": "^0.1.7",
+		"karma-jasmine": "^0.3.8",
 		"karma-verbose-reporter": "0.0.3",
 		"karma-fixture": "^0.2.6",
 		"karma-html2js-preprocessor": "^1.1.0",
 		"karma-json-fixtures-preprocessor": "0.0.6"
-  },
-  "license": "GPL-2.0+"
+	},
+	"license": "GPL-2.0+"
 }
