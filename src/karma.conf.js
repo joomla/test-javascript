@@ -21,6 +21,7 @@ module.exports = function (config) {
 
 			// Load the files to test against
 			{ pattern: 'media/legacy/js/caption.js', loaded: true, served: true, watch: false },
+			{ pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
 			{ pattern: 'media/system/webcomponents/js/joomla-field-switcher-es5.js', loaded: true, served: true, watch: false },
 
 
