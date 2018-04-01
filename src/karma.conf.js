@@ -14,11 +14,19 @@ module.exports = function (config) {
 		files: [
 			'./node_modules/joomla-javascript-tests/src/**/fixtures/*.html',
 
-			// 'node_modules/karma-fixture-loader/karma-fixture-loader.js',
+			// Include the webcomponents polyfills
+			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js', loaded: true, served: true, watch: false },
+			// Load web components polyfill
+			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js', loaded: true, served: true, watch: false },
+
+			// Load the files to test against
 			{ pattern: 'media/legacy/js/caption.js', loaded: true, served: true, watch: false },
+			{ pattern: 'media/system/webcomponents/js/joomla-field-switcher-es5.js', loaded: true, served: true, watch: false },
 
 
-			'node_modules/joomla-javascript-tests/src/caption/*.js',
+			// Load the tests definitions files
+			'node_modules/joomla-javascript-tests/src/caption/*.spec.js',
+			'node_modules/joomla-javascript-tests/src/joomla-switcher/*.spec.js',
 
 		],
 
