@@ -20,13 +20,11 @@ module.exports = function (config) {
 			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js', loaded: true, served: true, watch: false },
 
 			// Load the files to test against
-			{ pattern: 'media/legacy/js/caption.js', loaded: true, served: true, watch: false },
 			{ pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
 			{ pattern: 'media/system/webcomponents/js/joomla-field-switcher-es5.js', loaded: true, served: true, watch: false },
 
 
 			// Load the tests definitions files
-			'node_modules/joomla-javascript-tests/src/caption/*.spec.js',
 			'node_modules/joomla-javascript-tests/src/joomla-switcher/*.spec.js',
 
 		],
