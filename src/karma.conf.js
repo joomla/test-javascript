@@ -17,7 +17,7 @@ module.exports = function (config) {
 			// Include the webcomponents polyfills
 			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js', loaded: true, served: true, watch: false },
 			// Load web components polyfill
-			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js', loaded: true, served: true, watch: false },
+			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js', loaded: true, served: true, watch: false },
 
 			// Load the files to test against
 			{ pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
