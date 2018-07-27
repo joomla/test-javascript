@@ -15,9 +15,9 @@ module.exports = function (config) {
 			'./node_modules/joomla-javascript-tests/src/**/fixtures/*.html',
 
 			// Include the webcomponents polyfills
-			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js', loaded: true, served: true, watch: false },
+			{ pattern: 'media/vendor/webcomponentsjs/js/custom-elements-es5-adapter.js', loaded: true, served: true, watch: false },
 			// Load web components polyfill
-			{ pattern: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js', loaded: true, served: true, watch: false },
+			{ pattern: 'media/vendor/webcomponentsjs/js/webcomponents-sd-ce-pf.js', loaded: true, served: true, watch: false },
 
 			// Load the files to test against
 			{ pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
