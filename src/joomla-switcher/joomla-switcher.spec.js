@@ -29,14 +29,15 @@ describe('Joomla switcher tests', () => {
 		it('Joomla switcher have 5 spans inside', () => {
 			console.log(fix)
 			const switcher = fix.querySelector('joomla-field-switcher');
+			const container = switcher.querySelector('fieldset.switcher');
 			const spans = [].slice.call(switcher.querySelectorAll('span'));
-			expect(spans.length).toBe(5);
+			expect(spans.length).toBe(4) && expect(container.length).toBe(1);
 		});
 
 		it('Joomla switcher have 1st span with aria-checked true', () => {
 			const switcher = fix.querySelector('joomla-field-switcher');
-			const span = switcher.querySelector('span.switcher');
-			expect(span.getAttribute('aria-checked')).toBe('true');
+			const container = switcher.querySelector('fieldset.switcher');
+			expect(container.getAttribute('aria-checked')).toBe('true');
 		});
 
 		it('Joomla switcher have 1st span to have class active', () => {
@@ -56,9 +57,9 @@ describe('Joomla switcher tests', () => {
 			const switcher = fix.querySelector('joomla-field-switcher');
 			const span0 = switcher.querySelector('span.switcher-label-0');
 			const span1 = switcher.querySelector('span.switcher-label-1');
-			const spanA = switcher.querySelector('span.switcher');
+			const container = switcher.querySelector('fieldset.switcher');
 			clickable.click();
-			expect(spanA.getAttribute('aria-checked')).toBe('true');
+			expect(container.getAttribute('aria-checked')).toBe('true');
 			expect(span0.classList.contains('active')).toBe(false);
 			expect(span1.classList.contains('active')).toBe(true);
 		});
