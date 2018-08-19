@@ -1,87 +1,135 @@
-// Karma configuration
 module.exports = function (config) {
-	config.set({
-		// base path that will be used to resolve all patterns (eg. files, exclude)
-		basePath: __dirname.replace('node_modules/joomla-javascript-tests/src', ''),
+  // const user = require('./user.json');
+  // SAUCE_CONNECT_DOWNLOAD_ON_INSTALL = true;
+  // process.env.SAUCE_USERNAME = user.username;
+  // process.env.SAUCE_ACCESS_KEY = user.accesskey;
+  if (!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY) {
+    console.log('Make sure the SAUCE_USERNAME and SAUCE_ACCESS_KEY environment variables are set.')
+    process.exit(1)
+  }
 
-		// frameworks to use
-		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['fixture', 'jasmine'],
+  // Browsers to run on Sauce Labs
+  // Check out https://saucelabs.com/platforms for all browser/OS combos
+  var customLaunchers = {
+    sl_chrome: {
+      base: 'SauceLabs',
+      browserName: 'chrome',
+    },
+    sl_firefox: {
+      base: 'SauceLabs',
+      browserName: 'firefox',
+    },
+    sl_edge: {
+      base: 'SauceLabs',
+      platform: "Windows 10",
+      browserName: "microsoftedge"
+    },
+    sl_safari: {
+      base: 'SauceLabs',
+      platform: 'OS X 10.13',
+      browserName: 'safari',
+    },
+    // sl_ie_11: {
+    //   base: 'SauceLabs',
+    //   browserName: 'internet explorer',
+    //   platform: 'Windows 8.1',
+    //   version: '11'
+    // }
+  }
 
-		//
+  config.set({
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: __dirname.replace('node_modules/joomla-javascript-tests/src', ''),
 
-		// list of files / patterns to load in the browser
-		files: [
-			'./node_modules/joomla-javascript-tests/src/**/fixtures/*.html',
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['fixture', 'jasmine'],
 
-			// Include the webcomponents polyfills
-			{ pattern: 'media/vendor/webcomponentsjs/js/custom-elements-es5-adapter.js', loaded: true, served: true, watch: false },
-			// Load web components polyfill
-			{ pattern: 'media/vendor/webcomponentsjs/js/webcomponents-sd-ce-pf.js', loaded: true, served: true, watch: false },
+    //
 
-			// Load the files to test against
-			{ pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
-			{ pattern: 'media/system/webcomponents/js/joomla-field-switcher-es5.js', loaded: true, served: true, watch: false },
+    // list of files / patterns to load in the browser
+    files: [
+      './node_modules/joomla-javascript-tests/src/**/fixtures/*.html',
+
+      // Include the webcomponents polyfills
+      //{ pattern: 'media/vendor/webcomponentsjs/js/custom-elements-es5-adapter.js', loaded: true, served: true, watch: false },
+      // Load web components polyfill
+      { pattern: 'media/vendor/webcomponentsjs/js/webcomponents-sd-ce-pf.js', loaded: true, served: true, watch: false },
+
+      // Load the files to test against
+      { pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
+      { pattern: 'media/system/webcomponents/js/joomla-field-switcher.js', loaded: true, served: true, watch: false },
 
 
-			// Load the tests definitions files
-			'node_modules/joomla-javascript-tests/src/joomla-switcher/*.spec.js',
+      // Load the tests definitions files
+      'node_modules/joomla-javascript-tests/src/joomla-switcher/*.spec.js',
 
-		],
+    ],
 
-		// preprocess matching files before serving them to the browser
-		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-		preprocessors: {
-			'**/system/js/*.js': ['coverage'],
-			'**/*.html': ['html2js'],
-			'**/*.json': ['json_fixtures'],
-		},
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      '**/*.html': ['html2js'],
+      '**/*.json': ['json_fixtures'],
+    },
 
-		// coverage reporter configuration
-		coverageReporter: {
-			type: 'html',
-			dir: 'build/coverage-js/'
-		},
+    // web server port
+    port: 9876,
 
-		// test results reporter to use
-		// possible values: 'dots', 'progress'
-		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['verbose', 'progress', 'coverage'],
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
 
-		// web server port
-		port: 9876,
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.DEBUG,
 
-		// enable / disable colors in the output (reporters and logs)
-		colors: true,
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
 
-		// level of logging
-		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-		logLevel: config.INFO,
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    // browsers: ['Firefox', 'Chrome', 'Safari'],
 
-		// enable / disable watching file and executing tests whenever any file changes
-		autoWatch: true,
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
 
-		// start these browsers
-		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Firefox'],
+    // list of plugins
+    plugins: [
+      'karma-fixture',
+      'karma-html2js-preprocessor',
+      'karma-json-fixtures-preprocessor',
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-safari-launcher',
+      // @todo enable coverage?
+      // 'karma-coverage',
+      'karma-sauce-launcher',
+      'karma-verbose-reporter'
+    ],
 
-		// Continuous Integration mode
-		// if true, Karma captures browsers, runs the tests and exits
-		singleRun: false,
-
-		// list of plugins
-		plugins: [
-			'karma-fixture',
-			'karma-html2js-preprocessor',
-			'karma-json-fixtures-preprocessor',
-			'karma-jasmine',
-			'karma-firefox-launcher',
-			'karma-coverage',
-			'karma-verbose-reporter'
-		],
-
-		// Concurrency level
-		// how many browser should be started simultaneous
-		concurrency: Infinity
-	});
-};
+    reporters: ['progress', 'saucelabs'],
+    port: 9876,
+    colors: true,
+    sauceLabs: {
+      testName: 'Karma and Sauce Labs demo',
+      recordScreenshots: false,
+      connectOptions: {
+        port: 5757,
+        logfile: 'sauce_connect.log'
+      },
+      public: 'public',
+      connectOptions: {
+        // username: user.username,
+        // accessKey: user.accesskey,
+        tunnelIdentifier: 'autoGeneratedTunnelID'
+      }
+    },
+    // Increase timeout in case connection in CI is slow
+    captureTimeout: 120000,
+    customLaunchers: customLaunchers,
+    browsers: Object.keys(customLaunchers),
+    singleRun: true
+  })
+}
