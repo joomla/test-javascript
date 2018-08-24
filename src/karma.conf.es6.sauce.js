@@ -26,12 +26,6 @@
 		platform: 'OS X 10.13',
 		browserName: 'safari',
 	  },
-	  // sl_ie_11: {
-	  //   base: 'SauceLabs',
-	  //   browserName: 'internet explorer',
-	  //   platform: 'Windows 8.1',
-	  //   version: '11'
-	  // }
 	}
   
 	config.set({
@@ -120,4 +114,3 @@
 	  singleRun: true
 	});
  }
-   
