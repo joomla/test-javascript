@@ -36,7 +36,7 @@ module.exports = function (config) {
 	  // Load the files to test against
 	  // Attention: tests should be written in ES5!!!
       { pattern: 'media/system/webcomponents/css/joomla-field-switcher.css', loaded: true, served: true, watch: false },
-      { pattern: 'media/system/webcomponents/js/joomla-field-switcher.es5.js', loaded: true, served: true, watch: false },
+      { pattern: 'media/system/webcomponents/js/joomla-field-switcher-es5.js', loaded: true, served: true, watch: false },
 
 
       // Load the tests definitions files

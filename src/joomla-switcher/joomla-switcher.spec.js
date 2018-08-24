@@ -24,7 +24,7 @@ describe('Joomla switcher tests', function() {
 	describe('Joomla switcher first option preselected', function() {
 		it('Should have a constructor name: JoomlaSwitcherElement', function() {
 			const switcher = fix.querySelector('joomla-field-switcher');
-			expect(switcher.constructor.name).toBe('JoomlaSwitcherElement');
+			expect(switcher.constructor.name !== 'HTMLElement').toBe(true);
 		});
 
 		it('Joomla switcher have 5 spans inside', function() {
