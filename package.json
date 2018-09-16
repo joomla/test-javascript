@@ -14,13 +14,11 @@
 		"karma": "^0.13.22",
 		"karma-coverage": "^1.1.1",
 		"karma-firefox-launcher": "^0.1.7",
+		"karma-jasmine": "^0.3.8",
+		"karma-verbose-reporter": "0.0.3",
 		"karma-fixture": "^0.2.6",
 		"karma-html2js-preprocessor": "^1.1.0",
-		"karma-jasmine": "^0.3.8",
-		"karma-json-fixtures-preprocessor": "0.0.6",
-		"karma-sauce-launcher": "^1.2.0",
-		"karma-verbose-reporter": "0.0.3"
+		"karma-json-fixtures-preprocessor": "0.0.6"
 	},
-	"license": "GPL-2.0+",
-	"devDependencies": {}
+	"license": "GPL-2.0+"
 }
