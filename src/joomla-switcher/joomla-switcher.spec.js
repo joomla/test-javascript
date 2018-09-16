@@ -8,26 +8,25 @@
  * @since       4.0.0
  * @version     1.0.0
  */
- // Tests must be ES5!!!
-describe('Joomla switcher tests', function() {
+describe('Joomla switcher tests', () => {
 	// Set up the script
-	beforeEach(function() {
+	beforeEach(() => {
 		fixture.setBase('node_modules/joomla-javascript-tests/src/joomla-switcher')
 		html_fixture = fixture.load('fixtures/fixture.html');
 		window.fix = html_fixture[0];
 	});
 
-	afterEach(function() {
+	afterEach(() => {
 		fixture.cleanup();
 	});
 
-	describe('Joomla switcher first option preselected', function() {
-		it('Should have a constructor name: JoomlaSwitcherElement', function() {
+	describe('Joomla switcher first option preselected', () => {
+		it('Should have a constructor name: JoomlaSwitcherElement', () => {
 			const switcher = fix.querySelector('joomla-field-switcher');
-			expect(switcher.constructor.name !== 'HTMLElement').toBe(true);
+			expect(switcher.constructor.name).toBe('JoomlaSwitcherElement');
 		});
 
-		it('Joomla switcher have 5 spans inside', function() {
+		it('Joomla switcher have 5 spans inside', () => {
 			console.log(fix)
 			const switcher = fix.querySelector('joomla-field-switcher');
 			const container = switcher.querySelector('fieldset.switcher');
@@ -35,25 +34,25 @@ describe('Joomla switcher tests', function() {
 			expect(spans.length).toBe(4) && expect(container.length).toBe(1);
 		});
 
-		it('Joomla switcher have 1st span with aria-checked true', function() {
+		it('Joomla switcher have 1st span with aria-checked true', () => {
 			const switcher = fix.querySelector('joomla-field-switcher');
 			const container = switcher.querySelector('fieldset.switcher');
 			expect(container.getAttribute('aria-checked')).toBe('true');
 		});
 
-		it('Joomla switcher have 1st span to have class active', function() {
+		it('Joomla switcher have 1st span to have class active', () => {
 			const switcher = fix.querySelector('joomla-field-switcher');
 			const span = switcher.querySelector('span.switcher-label-0');
 			expect(span.classList.contains('active')).toBe(true);
 		});
 
-		it('Joomla switcher have 2nd span not to have class active', function() {
+		it('Joomla switcher have 2nd span not to have class active', () => {
 			const switcher = fix.querySelector('joomla-field-switcher');
 			const span = switcher.querySelector('span.switcher-label-1');
 			expect(span.classList.contains('active')).toBe(false);
 		});
 
-		it('Joomla switcher on click change state', function() {
+		it('Joomla switcher on click change state', () => {
 			const clickable = fix.querySelector('input#sw1');
 			const switcher = fix.querySelector('joomla-field-switcher');
 			const span0 = switcher.querySelector('span.switcher-label-0');
